@@ -2,6 +2,11 @@
 
 <p align="center"> 🚀 This script is designed to call a given prompt in N different models and providers, and use a specific template to aggregate all returns and generate a new answer.</p>
 
+<h3>☕ Next Features</h3>
+
+- run deepseek models
+- image inputs
+
 <h3>🏁 Table of Contents</h3>
 
 <br>
@@ -51,6 +56,8 @@ $ make clean
 ## ☕ **Using**
 
 First, check the [dependencies](#dependenciesandenvironment) process
+
+Check models and providers in `MODELS_TO_EXECUTE` variable and sintetizer (model and provider to aggregate all responses and generate a new) in `SINTETIZER` variable, both in [`main.py`](main.py) file
 
 You can run using the script
 
