@@ -14,7 +14,6 @@ MODELS_TO_EXECUTE = {
         "func": exec_gemini_async,
         "models": [
             "gemini-2.5-flash-preview-05-20",
-            "gemini-2.5-pro",
             "gemini-2.5-flash-lite",
         ],
     },
