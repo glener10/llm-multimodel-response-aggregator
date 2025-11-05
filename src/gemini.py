@@ -2,7 +2,7 @@ import google.generativeai as genai
 from google.generativeai import types
 
 
-async def exec_gemini_async(model_name: str, prompt: str) -> str:
+async def exec_gemini_async(model_name: str, args) -> str:
     try:
         model = genai.GenerativeModel(
             model_name=model_name,
@@ -13,7 +13,7 @@ async def exec_gemini_async(model_name: str, prompt: str) -> str:
         print(f"🧠 firing model: {model_name}")
         response = await model.generate_content_async(
             contents=[
-                prompt,
+                args.prompt,
             ]
         )
 

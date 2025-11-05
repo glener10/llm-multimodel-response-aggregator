@@ -1,5 +1,6 @@
 import asyncio
 import datetime
+import types
 import google.generativeai as genai
 
 from src.dtos.sintetizer import ProviderEnum, Sintetizer
@@ -38,12 +39,14 @@ async def main():
     for provider_config in MODELS_TO_EXECUTE.values():
         exec_func = provider_config["func"]
         for model in provider_config["models"]:
-            tasks.append(exec_func(model, args.prompt))
+            tasks.append(exec_func(model, args))
             all_models_list.append(model)
 
     results_from_models = await asyncio.gather(*tasks)
 
-    prompt_with_aggregated_response = aggregate_responses(results_from_models)
+    prompt_with_aggregated_response = types.SimpleNamespace(
+        prompt=aggregate_responses(results_from_models)
+    )
 
     execution_map = {
         ProviderEnum.GEMINI: exec_gemini_async,

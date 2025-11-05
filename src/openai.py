@@ -3,14 +3,14 @@ from openai import AsyncOpenAI
 from src.env import get_openai_api_key
 
 
-async def exec_openai_async(model_name: str, prompt: str) -> str:
+async def exec_openai_async(model_name: str, args) -> str:
     try:
         async with AsyncOpenAI(api_key=get_openai_api_key()) as client:
             messages = [
                 {
                     "role": "user",
                     "content": [
-                        {"type": "text", "text": prompt},
+                        {"type": "text", "text": args.prompt},
                     ],
                 }
             ]
