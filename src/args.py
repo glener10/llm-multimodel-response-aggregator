@@ -10,5 +10,11 @@ def get_args():
         default="return a hello world python script",
         help="prompt for the model",
     )
+    parser.add_argument(
+        "-i",
+        "--input",
+        required=False,
+        help="path to the input image file",
+    )
     args = parser.parse_args()
     return args
